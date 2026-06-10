@@ -1,0 +1,2059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Global Flavor Recipes | 500+ Recipes From Around The World</title>
+
+<meta name="description" content="Discover 500+ delicious recipes from around the world. Search, save favorites, bookmark recipes and explore global cuisines.">
+
+<meta property="og:title" content="Global Flavor Recipes">
+<meta property="og:description" content="500+ Delicious Recipes From Around The World">
+<meta property="og:type" content="website">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#0f172a;
+color:white;
+overflow-x:hidden;
+transition:0.4s;
+}
+
+body.light{
+background:#ffffff;
+color:#111;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+ul{
+list-style:none;
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+.container{
+width:90%;
+max-width:1400px;
+margin:auto;
+}
+
+/* Loader */
+
+.loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#0f172a;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:99999;
+}
+
+.loader h1{
+font-size:3rem;
+background:linear-gradient(45deg,#ff6b35,#ffb703);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+50%{
+transform:scale(1.1);
+}
+}
+
+/* Navbar */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:20px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+backdrop-filter:blur(20px);
+background:rgba(255,255,255,0.05);
+z-index:999;
+}
+
+.logo{
+font-size:1.8rem;
+font-weight:700;
+color:#ffb703;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+}
+
+.nav-links a{
+font-weight:600;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:#ffb703;
+}
+
+.dark-toggle{
+background:#ffb703;
+padding:10px 15px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+}
+
+/* Hero */
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+overflow:hidden;
+}
+
+.hero::before{
+content:'';
+position:absolute;
+width:100%;
+height:100%;
+background:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80');
+background-size:cover;
+background-position:center;
+opacity:.3;
+animation:zoomBg 15s infinite alternate;
+}
+
+@keyframes zoomBg{
+from{
+transform:scale(1);
+}
+to{
+transform:scale(1.2);
+}
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:900px;
+}
+
+.hero h1{
+font-size:4rem;
+margin-bottom:20px;
+background:linear-gradient(45deg,#ffb703,#fb8500);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+font-size:1.2rem;
+margin-bottom:30px;
+}
+
+.search-box{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.search-box input{
+width:500px;
+max-width:90%;
+padding:15px;
+border:none;
+border-radius:12px;
+outline:none;
+font-size:1rem;
+}
+
+.search-box button{
+padding:15px 25px;
+border:none;
+border-radius:12px;
+background:#ffb703;
+font-weight:bold;
+cursor:pointer;
+}
+
+/* Stats */
+
+.stats{
+padding:80px 0;
+}
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.stat-card{
+padding:40px;
+background:rgba(255,255,255,0.05);
+border-radius:20px;
+text-align:center;
+backdrop-filter:blur(20px);
+}
+
+.stat-card h2{
+font-size:3rem;
+color:#ffb703;
+}
+
+/* Categories */
+
+.categories{
+padding:80px 0;
+}
+
+.section-title{
+text-align:center;
+font-size:3rem;
+margin-bottom:40px;
+}
+
+.category-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.category-card{
+padding:30px;
+background:rgba(255,255,255,0.05);
+border-radius:20px;
+text-align:center;
+transition:0.4s;
+cursor:pointer;
+}
+
+.category-card:hover{
+transform:translateY(-10px);
+}
+
+.category-card i{
+font-size:3rem;
+color:#ffb703;
+margin-bottom:15px;
+}
+
+/* Ad Banner */
+
+.ad-banner{
+margin:50px auto;
+padding:40px;
+border-radius:20px;
+text-align:center;
+background:linear-gradient(45deg,#fb8500,#ffb703);
+color:#000;
+}
+
+.ad-banner h2{
+margin-bottom:15px;
+}
+
+.ad-banner a{
+display:inline-block;
+padding:15px 25px;
+background:#000;
+color:#fff;
+border-radius:10px;
+margin-top:10px;
+}
+
+/* Featured Recipes */
+
+.featured{
+padding:80px 0;
+}
+
+.recipe-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+.recipe-card{
+background:rgba(255,255,255,0.05);
+border-radius:20px;
+overflow:hidden;
+transition:.4s;
+}
+
+.recipe-card:hover{
+transform:translateY(-10px);
+}
+
+.recipe-card img{
+height:250px;
+width:100%;
+object-fit:cover;
+}
+
+.recipe-content{
+padding:20px;
+}
+
+.recipe-content h3{
+margin-bottom:10px;
+}
+
+.recipe-content p{
+margin-bottom:10px;
+opacity:.8;
+}
+
+.recipe-actions{
+display:flex;
+gap:10px;
+margin-top:15px;
+}
+
+.recipe-actions button{
+padding:10px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+background:#ffb703;
+}
+
+/* Footer */
+
+footer{
+padding:60px 5%;
+margin-top:80px;
+background:#020617;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.footer-links a{
+display:block;
+margin:10px 0;
+}
+
+.socials{
+display:flex;
+gap:15px;
+font-size:1.5rem;
+margin-top:15px;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:2.5rem;
+}
+
+.nav-links{
+display:none;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="loader">
+<h1>Global Flavor Recipes</h1>
+</div>
+
+<nav>
+
+<div class="logo">
+🍽 Global Flavor Recipes
+</div>
+
+<div class="nav-links">
+<a href="#">Home</a>
+<a href="#">Recipes</a>
+<a href="#">Categories</a>
+<a href="#">Blog</a>
+<a href="#">Contact</a>
+</div>
+
+<button class="dark-toggle" id="darkToggle">
+🌙 Mode
+</button>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-content" data-aos="zoom-in">
+
+<h1>
+Discover 500+ Delicious Recipes From Around The World
+</h1>
+
+<p>
+Explore cuisines, save favorites, and discover amazing dishes from every corner of the globe.
+</p>
+
+<div class="search-box">
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search recipes..."
+>
+
+<button>
+Search
+</button>
+
+</div>
+
+</div>
+
+</section>
+<!-- =========================
+STATISTICS SECTION
+========================= -->
+
+<section class="stats">
+
+<div class="container">
+
+<h2 class="section-title" data-aos="fade-up">
+Our Global Food Community
+</h2>
+
+<div class="stats-grid">
+
+<div class="stat-card" data-aos="zoom-in">
+<h2 class="counter" data-target="500">0</h2>
+<p>Recipes</p>
+</div>
+
+<div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
+<h2 class="counter" data-target="100">0</h2>
+<p>Categories</p>
+</div>
+
+<div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
+<h2 class="counter" data-target="50">0</h2>
+<p>Countries</p>
+</div>
+
+<div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
+<h2 class="counter" data-target="10000">0</h2>
+<p>Happy Food Lovers</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+ADVERTISEMENT SECTION
+========================= -->
+
+<section class="container">
+
+<div class="ad-banner" data-aos="fade-up">
+
+<h2>
+🔥 Special Cooking Offers & Food Deals
+</h2>
+
+<p>
+Explore amazing food-related opportunities and exclusive promotions.
+</p>
+
+<a
+href="https://www.effectivecpmnetwork.com/qmyzm7mr?key=80c900b52f782ec810f127a4924b07cf"
+target="_blank"
+>
+Learn More
+</a>
+
+</div>
+
+</section>
+
+<!-- =========================
+CATEGORIES
+========================= -->
+
+<section class="categories">
+
+<div class="container">
+
+<h2 class="section-title" data-aos="fade-up">
+Popular Categories
+</h2>
+
+<div class="category-grid">
+
+<div class="category-card" data-aos="fade-up">
+<i class="fas fa-pizza-slice"></i>
+<h3>Italian</h3>
+</div>
+
+<div class="category-card" data-aos="fade-up">
+<i class="fas fa-bowl-rice"></i>
+<h3>Chinese</h3>
+</div>
+
+<div class="category-card" data-aos="fade-up">
+<i class="fas fa-fish"></i>
+<h3>Japanese</h3>
+</div>
+
+<div class="category-card" data-aos="fade-up">
+<i class="fas fa-pepper-hot"></i>
+<h3>Indian</h3>
+</div>
+
+<div class="category-card" data-aos="fade-up">
+<i class="fas fa-utensils"></i>
+<h3>Sri Lankan</h3>
+</div>
+
+<div class="category-card" data-aos="fade-up">
+<i class="fas fa-shrimp"></i>
+<h3>Thai</h3>
+</div>
+
+<div class="category-card" data-aos="fade-up">
+<i class="fas fa-drumstick-bite"></i>
+<h3>Korean</h3>
+</div>
+
+<div class="category-card" data-aos="fade-up">
+<i class="fas fa-burger"></i>
+<h3>American</h3>
+</div>
+
+<div class="category-card" data-aos="fade-up">
+<i class="fas fa-cheese"></i>
+<h3>French</h3>
+</div>
+
+<div class="category-card" data-aos="fade-up">
+<i class="fas fa-leaf"></i>
+<h3>Vegetarian</h3>
+</div>
+
+<div class="category-card" data-aos="fade-up">
+<i class="fas fa-seedling"></i>
+<h3>Vegan</h3>
+</div>
+
+<div class="category-card" data-aos="fade-up">
+<i class="fas fa-ice-cream"></i>
+<h3>Desserts</h3>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+FEATURED RECIPES
+========================= -->
+
+<section class="featured">
+
+<div class="container">
+
+<h2 class="section-title" data-aos="fade-up">
+Trending Recipes
+</h2>
+
+<div class="recipe-grid">
+
+<div class="recipe-card" data-aos="zoom-in">
+
+<img
+src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80"
+loading="lazy"
+>
+
+<div class="recipe-content">
+
+<h3>Italian Pizza</h3>
+
+<p>
+Classic cheese pizza with fresh ingredients.
+</p>
+
+<p>
+⭐ 4.9 Rating
+</p>
+
+<div class="recipe-actions">
+
+<button class="favorite-btn">
+❤️
+</button>
+
+<button class="bookmark-btn">
+🔖
+</button>
+
+<button>
+📤
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="recipe-card" data-aos="zoom-in">
+
+<img
+src="https://images.unsplash.com/photo-1559847844-d721426d6edc?auto=format&fit=crop&w=800&q=80"
+loading="lazy"
+>
+
+<div class="recipe-content">
+
+<h3>Beef Burger</h3>
+
+<p>
+Juicy grilled burger with premium toppings.
+</p>
+
+<p>
+⭐ 4.8 Rating
+</p>
+
+<div class="recipe-actions">
+
+<button class="favorite-btn">
+❤️
+</button>
+
+<button class="bookmark-btn">
+🔖
+</button>
+
+<button>
+📤
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="recipe-card" data-aos="zoom-in">
+
+<img
+src="https://images.unsplash.com/photo-1563379091339-03246963d96c?auto=format&fit=crop&w=800&q=80"
+loading="lazy"
+>
+
+<div class="recipe-content">
+
+<h3>Sushi Deluxe</h3>
+
+<p>
+Fresh Japanese sushi prepared by tradition.
+</p>
+
+<p>
+⭐ 4.9 Rating
+</p>
+
+<div class="recipe-actions">
+
+<button class="favorite-btn">
+❤️
+</button>
+
+<button class="bookmark-btn">
+🔖
+</button>
+
+<button>
+📤
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="recipe-card" data-aos="zoom-in">
+
+<img
+src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=800&q=80"
+loading="lazy"
+>
+
+<div class="recipe-content">
+
+<h3>Chicken Biryani</h3>
+
+<p>
+Flavorful rice dish loved worldwide.
+</p>
+
+<p>
+⭐ 5.0 Rating
+</p>
+
+<div class="recipe-actions">
+
+<button class="favorite-btn">
+❤️
+</button>
+
+<button class="bookmark-btn">
+🔖
+</button>
+
+<button>
+📤
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+SECOND ADVERTISEMENT
+========================= -->
+
+<section class="container">
+
+<div class="ad-banner">
+
+<h2>
+🚀 Discover More Food Opportunities
+</h2>
+
+<p>
+Click below to explore exciting offers.
+</p>
+
+<a
+href="https://www.effectivecpmnetwork.com/qmyzm7mr?key=80c900b52f782ec810f127a4924b07cf"
+target="_blank"
+>
+Explore Now
+</a>
+
+</div>
+
+</section>
+
+<!-- =========================
+NEWSLETTER
+========================= -->
+
+<section class="categories">
+
+<div class="container">
+
+<h2 class="section-title">
+Join Our Newsletter
+</h2>
+
+<div class="category-card">
+
+<h3>
+Get Weekly Recipe Updates
+</h3>
+
+<br>
+
+<input
+type="email"
+placeholder="Enter your email"
+style="
+width:100%;
+padding:15px;
+border:none;
+border-radius:10px;
+margin-bottom:15px;
+"
+>
+
+<button
+style="
+padding:15px 25px;
+background:#ffb703;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+"
+>
+Subscribe
+</button>
+
+</div>
+
+</div>
+
+</section>
+<!-- =========================
+POPULAR RECIPES SECTION
+========================= -->
+
+<section class="featured">
+
+<div class="container">
+
+<h2 class="section-title" data-aos="fade-up">
+Popular Recipes Collection
+</h2>
+
+<div id="recipeContainer" class="recipe-grid">
+
+<!-- JavaScript වලින් recipes load වේ -->
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+TESTIMONIALS
+========================= -->
+
+<section class="categories">
+
+<div class="container">
+
+<h2 class="section-title">
+What Food Lovers Say
+</h2>
+
+<div class="category-grid">
+
+<div class="category-card">
+<h3>Sarah Johnson</h3>
+<p>
+★★★★★
+</p>
+<p>
+Amazing recipes and beautiful design. I cook from this site every week.
+</p>
+</div>
+
+<div class="category-card">
+<h3>David Smith</h3>
+<p>
+★★★★★
+</p>
+<p>
+Best recipe platform I've used. Easy search and excellent food ideas.
+</p>
+</div>
+
+<div class="category-card">
+<h3>Emma Wilson</h3>
+<p>
+★★★★★
+</p>
+<p>
+Love the categories and the dark mode feature.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+FOOTER
+========================= -->
+
+<footer>
+
+<div class="footer-grid">
+
+<div>
+
+<h2>
+🍽 Global Flavor Recipes
+</h2>
+
+<p style="margin-top:15px;">
+Discover 500+ delicious recipes from around the world.
+</p>
+
+<div class="socials">
+
+<i class="fab fa-facebook"></i>
+
+<i class="fab fa-instagram"></i>
+
+<i class="fab fa-youtube"></i>
+
+<i class="fab fa-twitter"></i>
+
+</div>
+
+</div>
+
+<div class="footer-links">
+
+<h3>Quick Links</h3>
+
+<a href="#">Home</a>
+
+<a href="#">Recipes</a>
+
+<a href="#">Categories</a>
+
+<a href="#">Blog</a>
+
+<a href="#">Contact</a>
+
+</div>
+
+<div class="footer-links">
+
+<h3>Recipe Categories</h3>
+
+<a href="#">Italian</a>
+
+<a href="#">Indian</a>
+
+<a href="#">Japanese</a>
+
+<a href="#">Thai</a>
+
+<a href="#">Desserts</a>
+
+</div>
+
+<div>
+
+<h3>Newsletter</h3>
+
+<br>
+
+<input
+type="email"
+placeholder="Email Address"
+style="
+width:100%;
+padding:12px;
+border:none;
+border-radius:10px;
+margin-bottom:10px;
+"
+>
+
+<button
+style="
+padding:12px 20px;
+background:#ffb703;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+"
+>
+Subscribe
+</button>
+
+</div>
+
+</div>
+
+<br><br>
+
+<center>
+
+<p>
+© 2026 Global Flavor Recipes. All Rights Reserved.
+</p>
+
+</center>
+
+</footer>
+
+<!-- =========================
+AOS JS
+========================= -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<script>
+
+AOS.init({
+duration:1000,
+once:true
+});
+
+/* Loader */
+
+window.addEventListener("load",()=>{
+
+setTimeout(()=>{
+
+document.querySelector(".loader").style.display="none";
+
+},1500);
+
+});
+
+/* Dark Mode */
+
+const darkBtn =
+document.getElementById("darkToggle");
+
+darkBtn.addEventListener("click",()=>{
+
+document.body.classList.toggle("light");
+
+localStorage.setItem(
+"theme",
+document.body.classList.contains("light")
+? "light"
+: "dark"
+);
+
+});
+
+if(localStorage.getItem("theme")==="light"){
+
+document.body.classList.add("light");
+
+}
+
+/* Counter Animation */
+
+const counters =
+document.querySelectorAll(".counter");
+
+counters.forEach(counter=>{
+
+const updateCounter=()=>{
+
+const target =
++counter.getAttribute("data-target");
+
+const current =
++counter.innerText;
+
+const increment =
+target/100;
+
+if(current<target){
+
+counter.innerText =
+Math.ceil(current+increment);
+
+setTimeout(updateCounter,20);
+
+}else{
+
+counter.innerText=target;
+
+}
+
+};
+
+updateCounter();
+
+});
+
+/* Sample Recipes */
+
+const recipeContainer =
+document.getElementById("recipeContainer");
+
+const sampleRecipes = [
+
+{
+name:"Pizza Supreme",
+image:"https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80",
+rating:"4.9"
+},
+
+{
+name:"Chicken Pasta",
+image:"https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=800&q=80",
+rating:"4.8"
+},
+
+{
+name:"Beef Burger",
+image:"https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80",
+rating:"4.9"
+},
+
+{
+name:"Sushi Deluxe",
+image:"https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=800&q=80",
+rating:"5.0"
+},
+
+{
+name:"Chocolate Cake",
+image:"https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80",
+rating:"4.9"
+},
+
+{
+name:"Chicken Biryani",
+image:"https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=800&q=80",
+rating:"5.0"
+}
+
+];
+
+sampleRecipes.forEach(recipe=>{
+
+recipeContainer.innerHTML += `
+
+<div class="recipe-card">
+
+<img
+src="${recipe.image}"
+loading="lazy"
+>
+
+<div class="recipe-content">
+
+<h3>${recipe.name}</h3>
+
+<p>
+⭐ ${recipe.rating} Rating
+</p>
+
+<div class="recipe-actions">
+
+<button class="favorite-btn">
+❤️
+</button>
+
+<button class="bookmark-btn">
+🔖
+</button>
+
+<button>
+📤
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+/* Search */
+
+const searchInput =
+document.getElementById("searchInput");
+
+searchInput.addEventListener("keyup",()=>{
+
+const value =
+searchInput.value.toLowerCase();
+
+const cards =
+document.querySelectorAll(".recipe-card");
+
+cards.forEach(card=>{
+
+const text =
+card.innerText.toLowerCase();
+
+card.style.display =
+text.includes(value)
+? "block"
+: "none";
+
+});
+
+});
+
+/* Favorites */
+
+document.addEventListener("click",(e)=>{
+
+if(e.target.classList.contains("favorite-btn")){
+
+e.target.innerHTML="❤️ Saved";
+
+}
+
+});
+
+/* Bookmarks */
+
+document.addEventListener("click",(e)=>{
+
+if(e.target.classList.contains("bookmark-btn")){
+
+e.target.innerHTML="✅";
+
+}
+
+});
+
+</script>
+<!-- =========================
+GSAP LIBRARY
+========================= -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<script>
+
+/* =========================
+SAFE CHECK
+========================= */
+
+// recipe container fix (important safety)
+const recipeContainer =
+document.getElementById("recipeContainer") || document.createElement("div");
+recipeContainer.id = "recipeContainer";
+document.body.appendChild(recipeContainer);
+
+/* =========================
+500+ RECIPE GENERATOR
+========================= */
+
+const foodNames = [
+"Pizza","Pasta","Burger","Sushi","Ramen","Biryani",
+"Chicken Curry","Butter Chicken","Lasagna","Tacos",
+"Burritos","Pad Thai","Fried Rice","Pho","Dumplings",
+"Kottu","Hoppers","Steak","Caesar Salad","Chocolate Cake",
+"Cheesecake","Pancakes","Donuts","Ice Cream","Brownies",
+"Cookies","BBQ Chicken","Grilled Salmon","Shrimp Pasta"
+];
+
+const recipeImages = [
+"https://images.unsplash.com/photo-1513104890138-7c749659a591",
+"https://images.unsplash.com/photo-1550547660-d9450f859349",
+"https://images.unsplash.com/photo-1579871494447-9811cf80d66c",
+"https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9",
+"https://images.unsplash.com/photo-1589302168068-964664d93dc0"
+];
+
+/* Generate 500 Recipes */
+
+for(let i=1;i<=500;i++){
+
+const food = foodNames[Math.floor(Math.random()*foodNames.length)];
+const image = recipeImages[Math.floor(Math.random()*recipeImages.length)];
+
+recipeContainer.innerHTML += `
+<div class="recipe-card">
+
+<img src="${image}?auto=format&fit=crop&w=800&q=80" loading="lazy">
+
+<div class="recipe-content">
+
+<h3>${food} ${i}</h3>
+
+<p>Cooking Time: ${10 + Math.floor(Math.random()*60)} mins</p>
+<p>Calories: ${200 + Math.floor(Math.random()*700)}</p>
+<p>Difficulty: ${["Easy","Medium","Hard"][Math.floor(Math.random()*3)]}</p>
+<p>⭐ ${(4 + Math.random()).toFixed(1)}</p>
+
+<div class="recipe-actions">
+<button class="favorite-btn">❤️</button>
+<button class="bookmark-btn">🔖</button>
+<button>📤</button>
+</div>
+
+</div>
+</div>
+`;
+}
+
+/* =========================
+FAVORITES
+========================= */
+
+document.addEventListener("click",(e)=>{
+if(e.target.classList.contains("favorite-btn")){
+let fav = JSON.parse(localStorage.getItem("favorites") || "[]");
+fav.push(e.target.closest(".recipe-card").querySelector("h3").innerText);
+localStorage.setItem("favorites",JSON.stringify(fav));
+}
+});
+
+/* =========================
+BOOKMARKS
+========================= */
+
+document.addEventListener("click",(e)=>{
+if(e.target.classList.contains("bookmark-btn")){
+let book = JSON.parse(localStorage.getItem("bookmarks") || "[]");
+book.push(e.target.closest(".recipe-card").querySelector("h3").innerText);
+localStorage.setItem("bookmarks",JSON.stringify(book));
+}
+});
+
+/* =========================
+RECENTLY VIEWED
+========================= */
+
+document.addEventListener("click",(e)=>{
+if(e.target.closest(".recipe-card")){
+let recent = JSON.parse(localStorage.getItem("recent") || "[]");
+recent.push(e.target.closest(".recipe-card").querySelector("h3")?.innerText || "Recipe");
+localStorage.setItem("recent",JSON.stringify(recent));
+}
+});
+
+/* =========================
+RATINGS
+========================= */
+
+document.addEventListener("dblclick",(e)=>{
+if(e.target.closest(".recipe-card")){
+alert("⭐ Thanks for rating!");
+}
+});
+
+/* =========================
+FLOATING ICONS
+========================= */
+
+for(let i=0;i<10;i++){
+const icon = document.createElement("div");
+icon.innerHTML = ["🍕","🍔","🍣","🍩","🍜"][Math.floor(Math.random()*5)];
+
+icon.style.position="fixed";
+icon.style.left=Math.random()*100+"%";
+icon.style.top=Math.random()*100+"%";
+icon.style.fontSize="25px";
+icon.style.opacity="0.2";
+icon.style.pointerEvents="none";
+
+document.body.appendChild(icon);
+
+gsap.to(icon,{
+y:-200,
+repeat:-1,
+duration:5+Math.random()*5
+});
+}
+
+/* =========================
+ANIMATIONS
+========================= */
+
+gsap.from(".hero h1",{y:-80,opacity:0,duration:1.5});
+gsap.from(".hero p",{y:80,opacity:0,duration:1.5});
+gsap.from(".search-box",{scale:0,opacity:0,duration:1});
+
+/* =========================
+PARALLAX
+========================= */
+
+window.addEventListener("scroll",()=>{
+let scroll = window.pageYOffset;
+document.querySelector(".hero").style.backgroundPositionY = scroll * 0.3 + "px";
+});
+
+</script>
+<!-- =========================
+PART 5 PREMIUM FEATURES
+========================= -->
+
+<script>
+
+/* =========================
+CATEGORY FILTER SYSTEM
+========================= */
+
+const categoryButtons = document.querySelectorAll(".category-card");
+
+categoryButtons.forEach(btn => {
+btn.addEventListener("click", () => {
+
+const category = btn.innerText.toLowerCase();
+const cards = document.querySelectorAll(".recipe-card");
+
+cards.forEach(card => {
+
+const title = card.querySelector("h3").innerText.toLowerCase();
+
+if(title.includes(category) || category === "all"){
+card.style.display = "block";
+} else {
+card.style.display = "none";
+}
+
+});
+
+});
+});
+
+/* =========================
+ADVANCED SEARCH (SMART)
+========================= */
+
+const searchInput = document.getElementById("searchInput");
+
+if(searchInput){
+
+searchInput.addEventListener("input", (e) => {
+
+const value = e.target.value.toLowerCase();
+const cards = document.querySelectorAll(".recipe-card");
+
+cards.forEach(card => {
+
+const text = card.innerText.toLowerCase();
+
+card.style.display =
+text.includes(value) ? "block" : "none";
+
+});
+
+});
+}
+
+/* =========================
+RECIPE MODAL POPUP
+========================= */
+
+const modal = document.createElement("div");
+
+modal.style.position = "fixed";
+modal.style.top = "0";
+modal.style.left = "0";
+modal.style.width = "100%";
+modal.style.height = "100%";
+modal.style.background = "rgba(0,0,0,0.8)";
+modal.style.display = "none";
+modal.style.justifyContent = "center";
+modal.style.alignItems = "center";
+modal.style.zIndex = "9999";
+
+modal.innerHTML = `
+<div style="
+background:white;
+color:black;
+padding:30px;
+border-radius:15px;
+max-width:500px;
+">
+<h2 id="modalTitle"></h2>
+<p>Premium Recipe Details</p>
+<button onclick="modal.style.display='none'">Close</button>
+</div>
+`;
+
+document.body.appendChild(modal);
+
+/* open modal on recipe click */
+
+document.addEventListener("click", (e) => {
+const card = e.target.closest(".recipe-card");
+
+if(card && !e.target.classList.contains("favorite-btn") && !e.target.classList.contains("bookmark-btn")){
+
+document.getElementById("modalTitle").innerText =
+card.querySelector("h3").innerText;
+
+modal.style.display = "flex";
+}
+});
+
+/* =========================
+BACK TO TOP BUTTON
+========================= */
+
+const topBtn = document.createElement("button");
+
+topBtn.innerText = "⬆ Top";
+
+topBtn.style.position = "fixed";
+topBtn.style.bottom = "20px";
+topBtn.style.right = "20px";
+topBtn.style.padding = "12px 15px";
+topBtn.style.border = "none";
+topBtn.style.borderRadius = "10px";
+topBtn.style.background = "#ffb703";
+topBtn.style.cursor = "pointer";
+topBtn.style.display = "none";
+
+document.body.appendChild(topBtn);
+
+topBtn.addEventListener("click", () => {
+window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+window.addEventListener("scroll", () => {
+topBtn.style.display = window.scrollY > 500 ? "block" : "none";
+});
+
+/* =========================
+RECIPE OF THE DAY
+========================= */
+
+setTimeout(() => {
+
+const featured = document.createElement("div");
+
+featured.innerHTML = `
+<div style="
+position:fixed;
+bottom:80px;
+right:20px;
+background:#ffb703;
+color:black;
+padding:15px;
+border-radius:12px;
+width:200px;
+z-index:9999;
+">
+<h4>🍽 Recipe of the Day</h4>
+<p>${["Pizza","Burger","Sushi","Pasta"][Math.floor(Math.random()*4)]}</p>
+</div>
+`;
+
+document.body.appendChild(featured);
+
+}, 2000);
+
+/* =========================
+INFINITE SCROLL SIMULATION
+========================= */
+
+window.addEventListener("scroll", () => {
+
+if(window.innerHeight + window.scrollY >= document.body.offsetHeight - 200){
+
+for(let i=0;i<10;i++){
+
+const card = document.createElement("div");
+
+card.className = "recipe-card";
+
+card.innerHTML = `
+<div class="recipe-content">
+<h3>Extra Recipe ${Math.floor(Math.random()*1000)}</h3>
+<p>Auto loaded content</p>
+</div>
+`;
+
+document.querySelector(".recipe-grid").appendChild(card);
+}
+
+}
+
+});
+
+</script>
+<!-- =========================
+PRO VERSION FINAL POLISH
+========================= -->
+
+<script>
+
+/* =========================
+GLOBAL STATE CLEANUP
+========================= */
+
+console.log("🍽 Global Flavor Recipes PRO MODE ACTIVE");
+
+/* =========================
+SMOOTH SCROLL FIX
+========================= */
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener("click", function (e) {
+e.preventDefault();
+document.querySelector(this.getAttribute("href"))?.scrollIntoView({
+behavior: "smooth"
+});
+});
+});
+
+/* =========================
+ACTIVE NAV HIGHLIGHT
+========================= */
+
+const navLinks = document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll", () => {
+
+let scrollPos = window.scrollY;
+
+document.querySelectorAll("section").forEach((sec, i) => {
+
+if(sec.offsetTop <= scrollPos + 100){
+navLinks.forEach(n => n.classList.remove("active"));
+if(navLinks[i]) navLinks[i].classList.add("active");
+}
+
+});
+
+});
+
+/* =========================
+PREMIUM LOADING SCREEN FIX
+========================= */
+
+window.addEventListener("load", () => {
+
+const loader = document.querySelector(".loader");
+
+if(loader){
+loader.style.opacity = "0";
+loader.style.transition = "0.5s";
+
+setTimeout(() => {
+loader.style.display = "none";
+}, 600);
+}
+
+});
+
+/* =========================
+DARK MODE SMOOTH TRANSITION FIX
+========================= */
+
+document.body.style.transition = "background 0.5s ease, color 0.5s ease";
+
+/* =========================
+LOCAL STORAGE SYNC FIX
+========================= */
+
+function getStorage(key){
+return JSON.parse(localStorage.getItem(key) || "[]");
+}
+
+function setStorage(key, value){
+localStorage.setItem(key, JSON.stringify(value));
+}
+
+/* =========================
+SMART FAVORITES UI UPDATE
+========================= */
+
+document.addEventListener("click", (e) => {
+
+if(e.target.classList.contains("favorite-btn")){
+
+e.target.style.transform = "scale(1.2)";
+setTimeout(()=> e.target.style.transform = "scale(1)", 200);
+
+e.target.innerText = "❤️ Saved";
+
+}
+});
+
+/* =========================
+PREMIUM KEYBOARD SHORTCUTS
+========================= */
+
+document.addEventListener("keydown", (e) => {
+
+// CTRL + K → focus search
+if(e.ctrlKey && e.key === "k"){
+e.preventDefault();
+document.getElementById("searchInput")?.focus();
+}
+
+// ESC → close modal
+if(e.key === "Escape"){
+document.querySelectorAll("[style*='position: fixed']")
+.forEach(el => {
+if(el.style.zIndex === "9999"){
+el.style.display = "none";
+}
+});
+}
+
+});
+
+/* =========================
+PERFORMANCE BOOST
+========================= */
+
+function debounce(func, delay){
+let timeout;
+return function(...args){
+clearTimeout(timeout);
+timeout = setTimeout(() => func.apply(this, args), delay);
+};
+}
+
+/* =========================
+SEARCH OPTIMIZED VERSION
+========================= */
+
+const optimizedSearch = debounce((value) => {
+
+document.querySelectorAll(".recipe-card").forEach(card => {
+
+const text = card.innerText.toLowerCase();
+
+card.style.display =
+text.includes(value.toLowerCase())
+? "block"
+: "none";
+
+});
+
+}, 300);
+
+document.getElementById("searchInput")?.addEventListener("input", (e) => {
+optimizedSearch(e.target.value);
+});
+
+/* =========================
+FINAL UI POLISH ANIMATION
+========================= */
+
+gsap.from("footer", {
+y: 100,
+opacity: 0,
+duration: 1.5
+});
+
+gsap.from(".category-card", {
+scale: 0.8,
+opacity: 0,
+stagger: 0.1,
+duration: 1
+});
+
+gsap.from(".recipe-card", {
+opacity: 0,
+y: 50,
+stagger: 0.02,
+duration: 0.8
+});
+
+/* =========================
+CONSOLE EASTER EGG
+========================= */
+
+console.log("%c🍽 GLOBAL FLAVOR RECIPES PRO","color:orange;font-size:20px;font-weight:bold;");
+console.log("%cBuilt with Vanilla JS + Passion 🔥","color:green;font-size:14px;");
+
+</script>
+<!-- =========================
+ULTRA PRO FINAL SYSTEM
+========================= -->
+
+<script>
+
+/* =========================
+FINAL SAFETY INIT
+========================= */
+
+console.log("🚀 ULTRA PRO MODE ENABLED - Global Flavor Recipes");
+
+/* =========================
+THEME SYNC FIX (FULL RELIABLE)
+========================= */
+
+function applyTheme(){
+const theme = localStorage.getItem("theme");
+if(theme === "light"){
+document.body.classList.add("light");
+}else{
+document.body.classList.remove("light");
+}
+}
+
+applyTheme();
+
+/* =========================
+REAL-TIME UI STATE FIX
+========================= */
+
+function updateUIState(){
+document.querySelectorAll(".recipe-card").forEach(card => {
+card.style.transition = "all 0.3s ease";
+});
+}
+
+updateUIState();
+
+/* =========================
+SMART FAVORITE SYSTEM (FIXED DUPLICATE ISSUE)
+========================= */
+
+document.addEventListener("click", (e) => {
+
+if(e.target.classList.contains("favorite-btn")){
+
+const name = e.target.closest(".recipe-card")
+.querySelector("h3").innerText;
+
+let fav = JSON.parse(localStorage.getItem("favorites") || "[]");
+
+if(!fav.includes(name)){
+fav.push(name);
+localStorage.setItem("favorites", JSON.stringify(fav));
+}
+
+e.target.innerText = "❤️ Saved";
+
+}
+});
+
+/* =========================
+SMART BOOKMARK SYSTEM (FIXED DUPLICATE ISSUE)
+========================= */
+
+document.addEventListener("click", (e) => {
+
+if(e.target.classList.contains("bookmark-btn")){
+
+const name = e.target.closest(".recipe-card")
+.querySelector("h3").innerText;
+
+let book = JSON.parse(localStorage.getItem("bookmarks") || "[]");
+
+if(!book.includes(name)){
+book.push(name);
+localStorage.setItem("bookmarks", JSON.stringify(book));
+}
+
+e.target.innerText = "🔖 Saved";
+
+}
+});
+
+/* =========================
+SMART RECENT VIEW FIX
+========================= */
+
+document.addEventListener("click", (e) => {
+
+const card = e.target.closest(".recipe-card");
+
+if(card && !e.target.classList.contains("favorite-btn") && !e.target.classList.contains("bookmark-btn")){
+
+let recent = JSON.parse(localStorage.getItem("recent") || "[]");
+
+const name = card.querySelector("h3").innerText;
+
+recent.unshift(name);
+
+recent = [...new Set(recent)].slice(0, 10);
+
+localStorage.setItem("recent", JSON.stringify(recent));
+}
+});
+
+/* =========================
+ULTRA SEARCH ENGINE (FAST FILTER)
+========================= */
+
+const ultraSearch = (value) => {
+
+const cards = document.querySelectorAll(".recipe-card");
+
+cards.forEach(card => {
+
+const text = card.innerText.toLowerCase();
+
+if(text.includes(value.toLowerCase())){
+card.style.display = "block";
+card.style.opacity = "1";
+}else{
+card.style.display = "none";
+card.style.opacity = "0.2";
+}
+
+});
+};
+
+document.getElementById("searchInput")?.addEventListener("input", (e) => {
+ultraSearch(e.target.value);
+});
+
+/* =========================
+ULTRA MODAL UPGRADE
+========================= */
+
+const modal = document.createElement("div");
+
+modal.style.position = "fixed";
+modal.style.top = "0";
+modal.style.left = "0";
+modal.style.width = "100%";
+modal.style.height = "100%";
+modal.style.background = "rgba(0,0,0,0.85)";
+modal.style.display = "none";
+modal.style.justifyContent = "center";
+modal.style.alignItems = "center";
+modal.style.zIndex = "99999";
+
+modal.innerHTML = `
+<div style="
+background:white;
+color:black;
+padding:30px;
+border-radius:15px;
+max-width:500px;
+text-align:center;
+">
+<h2 id="ultraTitle">Recipe</h2>
+<p>🔥 Premium Recipe View</p>
+<button onclick="modal.style.display='none'"
+style="padding:10px 20px;border:none;background:#ffb703;border-radius:10px;">
+Close
+</button>
+</div>
+`;
+
+document.body.appendChild(modal);
+
+document.addEventListener("click", (e) => {
+
+const card = e.target.closest(".recipe-card");
+
+if(card && !e.target.classList.contains("favorite-btn") && !e.target.classList.contains("bookmark-btn")){
+
+document.getElementById("ultraTitle").innerText =
+card.querySelector("h3").innerText;
+
+modal.style.display = "flex";
+}
+
+});
+
+/* =========================
+KEYBOARD MASTER CONTROLS
+========================= */
+
+document.addEventListener("keydown", (e) => {
+
+// CTRL + K focus search
+if(e.ctrlKey && e.key === "k"){
+e.preventDefault();
+document.getElementById("searchInput")?.focus();
+}
+
+// ESC close modal
+if(e.key === "Escape"){
+modal.style.display = "none";
+}
+
+});
+
+/* =========================
+FINAL GSAP POLISH
+========================= */
+
+gsap.from(".recipe-card", {
+opacity: 0,
+y: 40,
+stagger: 0.01,
+duration: 0.8
+});
+
+gsap.from(".category-card", {
+scale: 0.9,
+opacity: 0,
+stagger: 0.05,
+duration: 1
+});
+
+/* =========================
+PERFORMANCE FINAL OPTIMIZATION
+========================= */
+
+function throttle(fn, limit){
+let lastCall = 0;
+return function(...args){
+const now = Date.now();
+if(now - lastCall >= limit){
+lastCall = now;
+fn.apply(this, args);
+}
+};
+}
+
+window.addEventListener("scroll", throttle(() => {
+
+let hero = document.querySelector(".hero");
+if(hero){
+hero.style.transform = `translateY(${window.scrollY * 0.2}px)`;
+}
+
+}, 10));
+
+/* =========================
+FINAL CONSOLE BRANDING
+========================= */
+
+console.log("%c🍽 GLOBAL FLAVOR RECIPES ULTRA PRO","color:#ffb703;font-size:22px;font-weight:bold;");
+console.log("%c🔥 FINAL BUILD COMPLETE - VANILLA JS ENGINE","color:green;font-size:14px;");
+
+</script>
+
+</body>
+</html>
